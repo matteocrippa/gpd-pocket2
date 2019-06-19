@@ -27,6 +27,7 @@ thermald() {
     # Enable + start
     sudo systemctl enable thermald.service
     sudo systemctl start thermald.service
+    sudo systemctl enable thermald
 }
 
 network() {
@@ -37,6 +38,7 @@ network() {
     sudo systemctl enable NetworkManager
     sudo systemctl start NetworkManager
 }
+
 
 sound() {
     # Install pulseaudio packages
@@ -62,6 +64,7 @@ tlp() {
     # Enable + start
     sudo systemctl enable tlp
     sudo systemctl start tlp
+    sudo systemctl enable tlp-slep.service
 }
 
 xorg() {
@@ -76,10 +79,19 @@ xorg() {
 
 i3() {
     yay -Sy i3-gaps
-
     sudo cp .xinitrc ~/.xinitrc
 }
 
 
 # exec script
 wifi
+pacman
+yay
+timezone
+thermald
+network
+sound
+bluetooth
+tlp
+xorg
+i3

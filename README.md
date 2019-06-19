@@ -14,5 +14,8 @@ Gpd Pocket 2 auto setup script for Archlinux
 - `cd /tmp/gdp-pocket2`
 - `./install`
 
+Once reboot, redo the first 3 step above, but this time run
+- `./setup-x`
+
 ## Credits
 Inspired by [GPD POCKET 2 ARCH GUIDE](https://github.com/joshskidmore/gpd-pocket-2-arch-guide)

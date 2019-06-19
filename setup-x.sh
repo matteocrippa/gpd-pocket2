@@ -76,6 +76,8 @@ xorg() {
 
 i3() {
     yay -Sy i3-gaps
+
+    sudo cp .xinitrc ~/.xinitrc
 }
 
 

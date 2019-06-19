@@ -17,11 +17,11 @@ export HOOKS="HOOKS=(base systemd autodetect keyboard sd-vconsole modconf block 
 
 
 while true; do
-    read -p 'do you want to remove and create / and swap "y" or "n": ' yn
+    read -p 'do you want to wipe the disk "y" or "n": ' yn
 
     case $yn in
 
-        [Yy]* ) echo 'this program continue '; break;;
+        [Yy]* ) wipe; break;;
 
         [Nn]* ) break;;
 
@@ -32,11 +32,11 @@ while true; do
 done
 
 while true; do
-    read -p 'do you want to remove and create /home and swap "y" or "n":  ' c
+    read -p 'do you want to partition the disk "y" or "n":  ' c
 
     case $c in
 
-        Yy]* ) echo 'this program continue '; break;;
+        [Yy]* ) echo partition; break;;
 
         [Nn]* ) break;;
 
@@ -82,13 +82,13 @@ format() {
     mkfs.vfat ${DISK}p1
 
     # format disk
-    cryptsetup luksFormat -v -s 512 -h sha512 ${DISK}p2 
+    cryptsetup luksFormat -v -s 512 -h sha512 ${DISK}p2
     cryptsetup luksOpen ${DISK}p2 luks
     pvcreate ${DISK}p2 ${LUKS}
-    vgcreate ${VG} ${LUKS} 
-    lvcreate -L${SWAP_SIZE} ${VG} -n ${SWAP} 
-    lvcreate -l 100%FREE ${VG} -n ${ROOT} 
-    mkfs.ext4 /dev/mapper/${VG}-${ROOT} 
+    vgcreate ${VG} ${LUKS}
+    lvcreate -L${SWAP_SIZE} ${VG} -n ${SWAP}
+    lvcreate -l 100%FREE ${VG} -n ${ROOT}
+    mkfs.ext4 /dev/mapper/${VG}-${ROOT}
     mkswap /dev/mapper/${VG}-${SWAP}
 }
 
@@ -166,3 +166,8 @@ chroot() {
     umount -R /mnt
     reboot
 }
+
+format
+wifi
+mount
+chroot

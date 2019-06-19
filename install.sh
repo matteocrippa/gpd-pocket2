@@ -158,4 +158,11 @@ chroot() {
     passwd
 
     # set user
+    useradd -m -g users -G wheel,storage,power -s /bin/bash ${USER}
+    passwd ${USER}
+
+    # final touches
+    exit
+    umount -R /mnt
+    reboot
 }

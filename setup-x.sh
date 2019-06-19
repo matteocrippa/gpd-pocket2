@@ -9,7 +9,7 @@ pacman() {
     echo "Include = /etc/pacman.d/mirrorlists" >> /etc/pacman.conf
     echo "[archlinuxfr]" >> /etc/pacman.conf
     echo "SigLevel = Never" >> /etc/pacman.conf
-    echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pamac.conf
+    echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacmac.conf
     sudo pacman -Sy
 }
 
@@ -78,7 +78,7 @@ xorg() {
 }
 
 i3() {
-    yay -Sy i3-gaps
+    yay -Sy i3-gaps-next-git
     sudo cp .xinitrc ~/.xinitrc
 }
 

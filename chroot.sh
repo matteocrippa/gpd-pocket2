@@ -37,7 +37,7 @@ chrootall() {
     echo "title Arch Linux" > ${BOOT_CFG}
     echo "linux /vmlinuz-linux" >> ${BOOT_CFG}
     echo "initrd /intel-ucode.img" >> ${BOOT_CFG}
-    echo "initrd /initramfs.img" >> ${BOOT_CFG}
+    echo "initrd /initramfs-linux.img" >> ${BOOT_CFG}
     export PART_ID=$(blkid -o value -s UUID ${DISK}p2)
     echo "options rd.luks.name=${PART_ID}=luks root=/dev/mapper/${VG}-${ROOT} rw fbcon=rotate:1" >> ${BOOT_CFG}
 

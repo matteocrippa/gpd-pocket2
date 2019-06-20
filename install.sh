@@ -119,8 +119,8 @@ chrootall() {
     
     # chroot arch
     arch-chroot /mnt /bin/bash
-    umount -R /mnt
-    reboot
+    #umount -R /mnt
+    #reboot
 }
 
 #format

@@ -69,7 +69,7 @@ chrootall() {
     passwd ${USER}
 
     # final touches
-    exit
+    #exit
 }
 
 chrootall

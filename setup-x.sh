@@ -8,9 +8,9 @@ update_pacman() {
     echo "[multilib]" | sudo tee -a /etc/pacman.conf
     echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
     echo "" | sudo tee -a /etc/pacman.conf
-    echo "[archlinuxfr]" | tee -a /etc/pacman.conf
-    echo "SigLevel = Never" | tee -a /etc/pacman.conf
-    echo "Server = http://repo.archlinux.fr/\$arch" | tee -a /etc/pacman.conf
+    echo "[archlinuxfr]" | sudo tee -a /etc/pacman.conf
+    echo "SigLevel = Never" | sudo tee -a /etc/pacman.conf
+    echo "Server = http://repo.archlinux.fr/\$arch" | sudo tee -a /etc/pacman.conf
     pacman -Suy
 }
 

@@ -11,7 +11,7 @@ update_pacman() {
     echo "[archlinuxfr]" | tee -a /etc/pacman.conf
     echo "SigLevel = Never" | tee -a /etc/pacman.conf
     echo "Server = http://repo.archlinux.fr/\$arch" | tee -a /etc/pacman.conf
-    pacman -Sy
+    pacman -Suy
 }
 
 set_yay() {
@@ -96,11 +96,11 @@ set_i3() {
 # exec script
 update_pacman
 set_yay
-set_timezone
-set_thermald
-set_network
-set_sound
-set_bluetooth
-set_tlp
-set_xorg
-set_i3
+#set_timezone
+#set_thermald
+#set_network
+#set_sound
+#set_bluetooth
+#set_tlp
+#set_xorg
+#set_i3

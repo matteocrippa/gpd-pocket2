@@ -92,6 +92,10 @@ set_i3() {
     sudo cp .xinitrc ~/.xinitrc
 }
 
+set_terminal() {
+    yay -Sy alacritty
+}
+
 
 # exec script
 update_pacman
@@ -104,3 +108,4 @@ set_bluetooth
 set_tlp
 set_xorg
 set_i3
+set_terminal

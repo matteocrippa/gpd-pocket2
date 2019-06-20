@@ -123,7 +123,7 @@ chrootall() {
     #reboot
 }
 
-#format
-#mountall
-#prepare
+format
+mountall
+prepare
 chrootall

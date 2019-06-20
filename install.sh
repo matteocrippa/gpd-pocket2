@@ -172,7 +172,7 @@ chroot() {
     reboot
 }
 
-format
-mountall
+#format
+#mountall
 prepare
 #chroot

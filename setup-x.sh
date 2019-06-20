@@ -98,9 +98,9 @@ set_i3() {
 #set_yay
 #set_timezone
 #set_thermald
-set_network
-set_sound
-#set_bluetooth
-#set_tlp
+#set_network
+#set_sound
+set_bluetooth
+set_tlp
 #set_xorg
 #set_i3

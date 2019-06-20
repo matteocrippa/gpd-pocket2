@@ -1,33 +1,34 @@
 #!/bin/bash
 
 cleanup() {
-    sudo rm /chroot.sh
+    rm /chroot.sh
 }
 
 update_pacman() {
-    sudo echo "[multilib]" >> /etc/pacman.conf
-    sudo echo "Include = /etc/pacman.d/mirrorlists" >> /etc/pacman.conf
-    sudo echo "[archlinuxfr]" >> /etc/pacman.conf
-    sudo echo "SigLevel = Never" >> /etc/pacman.conf
-    sudo echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacmac.conf
-    sudo pacman -Sy
+    echo "[multilib]" >> /etc/pacman.conf
+    echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+    echo "" >> /etc/pacman.conf
+    echo "[archlinuxfr]" >> /etc/pacman.conf
+    echo "SigLevel = Never" >> /etc/pacman.conf
+    echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+    pacman -Sy
 }
 
 set_yay() {
-    sudo pacman -Sy yay
+    pacman -Sy yay
 }
 
 set_timezone() {
-    sudo tzselect
+    tzselect
 }
 
 set_thermald() {
     yay -Sy thermald
 
     # Enable + start
-    sudo systemctl enable thermald.service
-    sudo systemctl start thermald.service
-    sudo systemctl enable thermald
+    systemctl enable thermald.service
+    systemctl start thermald.service
+    systemctl enable thermald
 }
 
 set_network() {
@@ -35,8 +36,8 @@ set_network() {
     yay -S networkmanager network-manager-applet nm-connection-editor
 
     # Enable + start
-    sudo systemctl enable NetworkManager
-    sudo systemctl start NetworkManager
+    systemctl enable NetworkManager
+    systemctl start NetworkManager
 }
 
 
@@ -50,8 +51,8 @@ set_bluetooth() {
     yay -S bluez bluez-utils bluez-tools
 
     # Enable + start
-    sudo systemctl enable bluetooth
-    sudo systemctl start bluetooth
+    systemctl enable bluetooth
+    systemctl start bluetooth
 
     # (optional) Install nice traybar utils
     yay -S blueman blueberry
@@ -62,24 +63,24 @@ set_tlp() {
     yay -S tlp
 
     # Enable + start
-    sudo systemctl enable tlp
-    sudo systemctl start tlp
-    sudo systemctl enable tlp-slep.service
+    systemctl enable tlp
+    systemctl start tlp
+    systemctl enable tlp-slep.service
 }
 
 set_xorg() {
     yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession
 
-    sudo cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
-    sudo cp xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
-    sudo cp xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
+    cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+    cp xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
+    cp xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
 
     yay -Sy xf86-video-intel
 }
 
 set_i3() {
     yay -Sy i3-gaps-next-git
-    sudo cp .xinitrc ~/.xinitrc
+    cp .xinitrc ~/.xinitrc
 }
 
 

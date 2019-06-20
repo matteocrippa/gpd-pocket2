@@ -114,7 +114,7 @@ prepare() {
 }
 
 # chroot
-chroot() {
+chrootall() {
     # chroot arch
     arch-chroot /mnt /bin/bash
 
@@ -177,4 +177,4 @@ chroot() {
 #format
 #mountall
 #prepare
-chroot
+chrootall

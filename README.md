@@ -19,6 +19,7 @@ Gpd Pocket 2 auto setup script for Archlinux
 
 Once reboot, redo the first 3 step above, but this time run
 - `sudo ./setup-x.sh`
+- then feel free to remove the directory
 
 ## Troubleshooting
 

@@ -98,7 +98,7 @@ wifi() {
 }
 
 # mount
-mount() {
+mountall() {
     mount /dev/mapper/${VG}-${ROOT} /mnt
     mkdir /mnt/boot
     mount ${DISK}p1 /mnt/boot
@@ -168,5 +168,5 @@ chroot() {
 }
 
 format
-mount
+mountall
 chroot

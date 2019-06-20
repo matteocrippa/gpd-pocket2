@@ -17,7 +17,7 @@ export HOOKS="HOOKS=(base systemd autodetect keyboard sd-vconsole modconf block 
 
 
 # mount
-mount() {
+mountall() {
     mount /dev/mapper/${VG}-${ROOT} /mnt
     mkdir /mnt/boot
     mount ${DISK}p1 /mnt/boot
@@ -25,4 +25,4 @@ mount() {
     genfstab -pU /mnt >> /mnt/etc/fstab
 }
 
-mount
+mountall

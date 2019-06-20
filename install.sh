@@ -108,9 +108,9 @@ mountall() {
 prepare() {
     hwclock -u
     rm -Rf /etc/pacman.d/gnupg
-
-    gpg --refresh-keys
-    pacman-key --init && pacman-key --populate
+    pacman-mirrors -g
+    pacman -Syy
+    pacman-key --populate archlinux
     pacman-key --refresh-keys
 
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
@@ -178,7 +178,7 @@ chroot() {
     reboot
 }
 
-format
-mountall
+#format
+#mountall
 prepare
 #chroot

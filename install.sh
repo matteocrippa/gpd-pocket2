@@ -106,12 +106,9 @@ mountall() {
 
 # pacstrap
 prepare() {
-    rm -R /etc/pacman.d/gnupg/
-    rm -R /root/.gnupg/
-    gpg --refresh-keys
-    pacman-key --init && pacman-key --populate archlinux
-    pacman-key --refresh-keys
-
+    timedatectl set-ntp true
+    cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+    rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }
@@ -177,7 +174,7 @@ chroot() {
     reboot
 }
 
-#format
-#mountall
+format
+mountall
 prepare
 #chroot

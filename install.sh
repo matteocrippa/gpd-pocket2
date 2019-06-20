@@ -107,8 +107,6 @@ mountall() {
 # pacstrap
 prepare() {
     timedatectl set-ntp true
-    cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-    rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }

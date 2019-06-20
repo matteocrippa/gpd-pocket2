@@ -109,13 +109,9 @@ prepare() {
     hwclock -u
     rm -Rf /etc/pacman.d/gnupg
 
-    rm -Rf /root/.gnupg/  # only if the directory exists
- gpg --refresh-keys
- pacman-key --init && pacman-key --populate
- pacman-key --refresh-keys
-
-
-    rm /var/cache/pacman/pkg/badpackage*
+    gpg --refresh-keys
+    pacman-key --init && pacman-key --populate
+    pacman-key --refresh-keys
 
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
@@ -182,7 +178,7 @@ chroot() {
     reboot
 }
 
-#format
-#mountall
+format
+mountall
 prepare
 #chroot

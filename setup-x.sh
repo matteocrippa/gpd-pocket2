@@ -5,12 +5,12 @@ cleanup() {
 }
 
 update_pacman() {
-    echo "[multilib]" >> /etc/pacman.conf
-    echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-    echo "" >> /etc/pacman.conf
-    echo "[archlinuxfr]" >> /etc/pacman.conf
-    echo "SigLevel = Never" >> /etc/pacman.conf
-    echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+    echo "[multilib]" | sudo tee -a /etc/pacman.conf
+    echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
+    echo "" | sudo tee -a /etc/pacman.conf
+    echo "[archlinuxfr]" | tee -a /etc/pacman.conf
+    echo "SigLevel = Never" | tee -a /etc/pacman.conf
+    echo "Server = http://repo.archlinux.fr/\$arch" | tee -a /etc/pacman.conf
     pacman -Sy
 }
 

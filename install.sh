@@ -108,7 +108,13 @@ mountall() {
 prepare() {
     hwclock -u
     rm -Rf /etc/pacman.d/gnupg
-    pacman-key --init
+
+    rm -Rf /root/.gnupg/  # only if the directory exists
+ gpg --refresh-keys
+ pacman-key --init && pacman-key --populate
+ pacman-key --refresh-keys
+
+
     rm /var/cache/pacman/pkg/badpackage*
 
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant

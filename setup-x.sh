@@ -100,7 +100,7 @@ set_i3() {
 #set_thermald
 #set_network
 #set_sound
-set_bluetooth
-set_tlp
-#set_xorg
-#set_i3
+#set_bluetooth
+#set_tlp
+set_xorg
+set_i3

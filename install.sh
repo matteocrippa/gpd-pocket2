@@ -107,7 +107,7 @@ mountall() {
 # pacstrap
 prepare() {
     hwclock -u
-    rm /etc/pacman.d/gnupg
+    rm -Rf /etc/pacman.d/gnupg
     pacman-key --init
     rm /var/cache/pacman/pkg/badpackage*
 

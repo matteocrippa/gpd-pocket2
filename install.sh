@@ -107,6 +107,7 @@ mountall() {
 # pacstrap
 prepare() {
     timedatectl set-ntp true
+    pacman -Sy archlinux-keyring
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }

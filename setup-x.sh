@@ -94,13 +94,13 @@ set_i3() {
 
 
 # exec script
-#update_pacman
-#set_yay
-#set_timezone
-#set_thermald
-#set_network
-#set_sound
-#set_bluetooth
-#set_tlp
+update_pacman
+set_yay
+set_timezone
+set_thermald
+set_network
+set_sound
+set_bluetooth
+set_tlp
 set_xorg
 set_i3

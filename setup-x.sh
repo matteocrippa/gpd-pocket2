@@ -4,21 +4,17 @@ cleanup() {
     sudo rm /chroot.sh
 }
 
-wifi() {
-    wifi-menu
-}
-
 update_pacman() {
-    echo "[multilib]" >> /etc/pacman.conf
-    echo "Include = /etc/pacman.d/mirrorlists" >> /etc/pacman.conf
-    echo "[archlinuxfr]" >> /etc/pacman.conf
-    echo "SigLevel = Never" >> /etc/pacman.conf
-    echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacmac.conf
+    sudo echo "[multilib]" >> /etc/pacman.conf
+    sudo echo "Include = /etc/pacman.d/mirrorlists" >> /etc/pacman.conf
+    sudo echo "[archlinuxfr]" >> /etc/pacman.conf
+    sudo echo "SigLevel = Never" >> /etc/pacman.conf
+    sudo echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacmac.conf
     sudo pacman -Sy
 }
 
 set_yay() {
-    pacman -Sy yay
+    sudo pacman -Sy yay
 }
 
 set_timezone() {
@@ -88,7 +84,6 @@ set_i3() {
 
 
 # exec script
-set_wifi
 update_pacman
 set_yay
 set_timezone

@@ -106,7 +106,11 @@ mountall() {
 
 # pacstrap
 prepare() {
-    pacman-key --refresh-keys
+    hwclock -u
+    rm /etc/pacman.d/gnupg
+    pacman-key --init
+    rm /var/cache/pacman/pkg/badpackage*
+
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }

@@ -176,5 +176,5 @@ chroot() {
 
 #format
 #mountall
-prepare
-#chroot
+#prepare
+chroot

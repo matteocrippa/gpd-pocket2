@@ -63,18 +63,17 @@ EOF
 
 
 while true; do
-    read -p 'do you want to partition the disk "y" or "n":  ' c
+    read -p 'do you want to partition the disk "y" or "n":  ' cc
 
-    case $c in
+    case $cc in
 
-        [Yy]* ) echo partition; break;;
+        [Yy]* ) partition; break;;
 
         [Nn]* ) break;;
 
         * ) echo 'Please answer yes or no: ';;
 
     esac
-
 done
 
 # format

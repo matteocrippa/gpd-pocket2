@@ -74,7 +74,7 @@ set_tlp() {
     # Enable + start
     sudo systemctl enable tlp
     sudo systemctl start tlp
-    sudo systemctl enable tlp-slep.service
+    sudo systemctl enable tlp-sleep.service
 }
 
 set_xorg() {

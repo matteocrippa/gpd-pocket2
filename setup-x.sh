@@ -1,10 +1,14 @@
 #!/bin/bash
 
+cleanup() {
+    sudo rm /chroot.sh
+}
+
 wifi() {
     wifi-menu
 }
 
-pacman() {
+update_pacman() {
     echo "[multilib]" >> /etc/pacman.conf
     echo "Include = /etc/pacman.d/mirrorlists" >> /etc/pacman.conf
     echo "[archlinuxfr]" >> /etc/pacman.conf
@@ -13,15 +17,15 @@ pacman() {
     sudo pacman -Sy
 }
 
-yay() {
+set_yay() {
     pacman -Sy yay
 }
 
-timezone() {
+set_timezone() {
     sudo tzselect
 }
 
-thermald() {
+set_thermald() {
     yay -Sy thermald
 
     # Enable + start
@@ -30,7 +34,7 @@ thermald() {
     sudo systemctl enable thermald
 }
 
-network() {
+set_network() {
     # Install
     yay -S networkmanager network-manager-applet nm-connection-editor
 
@@ -40,12 +44,12 @@ network() {
 }
 
 
-sound() {
+set_sound() {
     # Install pulseaudio packages
     yay -S pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-ctl
 }
 
-bluetooth() {
+set_bluetooth() {
     # Install
     yay -S bluez bluez-utils bluez-tools
 
@@ -57,7 +61,7 @@ bluetooth() {
     yay -S blueman blueberry
 }
 
-tlp() {
+set_tlp() {
     # Install
     yay -S tlp
 
@@ -67,7 +71,7 @@ tlp() {
     sudo systemctl enable tlp-slep.service
 }
 
-xorg() {
+set_xorg() {
     yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession
 
     sudo cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
@@ -77,21 +81,21 @@ xorg() {
     yay -Sy xf86-video-intel
 }
 
-i3() {
+set_i3() {
     yay -Sy i3-gaps-next-git
     sudo cp .xinitrc ~/.xinitrc
 }
 
 
 # exec script
-wifi
-pacman
-yay
-timezone
-thermald
-network
-sound
-bluetooth
-tlp
-xorg
-i3
+set_wifi
+update_pacman
+set_yay
+set_timezone
+set_thermald
+set_network
+set_sound
+set_bluetooth
+set_tlp
+set_xorg
+set_i3

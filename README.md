@@ -20,5 +20,14 @@ Gpd Pocket 2 auto setup script for Archlinux
 Once reboot, redo the first 3 step above, but this time run
 - `./setup-x.sh`
 
+## Troubleshooting
+
+On reboot, if an error about mounting occurs, login as root, then:
+
+- `lsbk -f` and note the UUID for the mmcblk0p1 partition
+- `vi /etc/fstab` and replace the UUID with right one
+- `reboot`
+
+
 ## Credits
 Inspired by [GPD POCKET 2 ARCH GUIDE](https://github.com/joshskidmore/gpd-pocket-2-arch-guide)

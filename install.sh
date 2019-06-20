@@ -169,6 +169,5 @@ chroot() {
 }
 
 format
-wifi
 mount
 chroot

@@ -18,7 +18,7 @@ Gpd Pocket 2 auto setup script for Archlinux
 - `./chroot.sh`
 
 Once reboot, redo the first 3 step above, but this time run
-- `./setup-x.sh`
+- `sudo ./setup-x.sh`
 
 ## Troubleshooting
 

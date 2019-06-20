@@ -10,12 +10,21 @@ update_pacman() {
     echo "" >> /etc/pacman.conf
     echo "[archlinuxfr]" >> /etc/pacman.conf
     echo "SigLevel = Never" >> /etc/pacman.conf
-    echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+    echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
     pacman -Sy
 }
 
 set_yay() {
-    pacman -Sy yay
+    # Build yay package and install
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+
+    # After install, remove the yay build folder
+    cd ..; rm -rf yay
+
+    # Sync yay
+    yay -Sy
 }
 
 set_timezone() {

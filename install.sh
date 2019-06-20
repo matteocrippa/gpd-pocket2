@@ -106,6 +106,9 @@ mountall() {
 
 # pacstrap
 prepare() {
+    pacman-key --init
+    pacman-key --populate archlinux
+    pacman-key --init
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }
@@ -171,7 +174,7 @@ chroot() {
     reboot
 }
 
-format
-mountall
-#prepare
+#format
+#mountall
+prepare
 #chroot

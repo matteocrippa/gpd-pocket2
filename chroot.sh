@@ -25,7 +25,8 @@ chrootall() {
     echo "FONT=latarcyrheb-sun32" > /etc/vconsole.conf
 
     # update modules
-    sed -i "/HOOKS/c $HOOKS" /etc/mkinitcpio.conf
+    sed -i "s/HOOKS/\#HOOKS/g" /etc/mkinitcpio.conf
+    echo $HOOKS >> /etc/mkinitcpio.conf
     mkinitcpio -P
 
     # install boot

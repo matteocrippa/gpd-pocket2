@@ -106,12 +106,10 @@ mountall() {
 
 # pacstrap
 prepare() {
-    hwclock -u
-    rm -Rf /etc/pacman.d/gnupg
-    pacman-mirrors -g
-    pacman -Syy
-    pacman-key --init
-    pacman-key --populate archlinux
+    rm -R /etc/pacman.d/gnupg/
+    rm -R /root/.gnupg/
+    gpg --refresh-keys
+    pacman-key --init && pacman-key --populate archlinux
     pacman-key --refresh-keys
 
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
@@ -179,7 +177,7 @@ chroot() {
     reboot
 }
 
-format
-mountall
+#format
+#mountall
 prepare
 #chroot

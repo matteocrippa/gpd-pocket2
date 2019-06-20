@@ -16,6 +16,17 @@ export BOOT_CFG=/boot/loader/entries/arch.conf
 export HOOKS="HOOKS=(base systemd autodetect keyboard sd-vconsole modconf block sd-encrypt sd-lvm2 fsck filesystems)"
 
 
+# wipe
+wipe() {
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $DISK
+  x # expert mode
+  z # wipe disk
+  y # confirm
+  y # confirm
+EOF
+}
+
+
 while true; do
     read -p 'do you want to wipe the disk "y" or "n": ' yn
 
@@ -28,33 +39,7 @@ while true; do
         * ) echo 'Please answer yes or no: ';;
 
     esac
-
 done
-
-while true; do
-    read -p 'do you want to partition the disk "y" or "n":  ' c
-
-    case $c in
-
-        [Yy]* ) echo partition; break;;
-
-        [Nn]* ) break;;
-
-        * ) echo 'Please answer yes or no: ';;
-
-    esac
-
-done
-
-# wipe
-wipe() {
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $DISK
-  x # expert mode
-  z # wipe disk
-  y # confirm
-  y # confirm
-EOF
-}
 
 # partition
 partition() {
@@ -75,6 +60,22 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $DISK
   y # confirm
 EOF
 }
+
+
+while true; do
+    read -p 'do you want to partition the disk "y" or "n":  ' c
+
+    case $c in
+
+        [Yy]* ) echo partition; break;;
+
+        [Nn]* ) break;;
+
+        * ) echo 'Please answer yes or no: ';;
+
+    esac
+
+done
 
 # format
 format() {

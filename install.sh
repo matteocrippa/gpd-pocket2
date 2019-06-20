@@ -110,6 +110,7 @@ prepare() {
     rm -Rf /etc/pacman.d/gnupg
     pacman-mirrors -g
     pacman -Syy
+    pacman-key --init
     pacman-key --populate archlinux
     pacman-key --refresh-keys
 

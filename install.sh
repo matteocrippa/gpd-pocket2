@@ -102,6 +102,10 @@ mountall() {
     mount /dev/mapper/${VG}-${ROOT} /mnt
     mkdir /mnt/boot
     mount ${DISK}p1 /mnt/boot
+}
+
+# pacstrap
+prepare() {
     pacstrap /mnt base base-devel dialog openssl-1.0 bash-completion git intel-ucode wpa_supplicant
     genfstab -pU /mnt >> /mnt/etc/fstab
 }
@@ -169,4 +173,5 @@ chroot() {
 
 format
 mountall
-chroot
+#prepare
+#chroot

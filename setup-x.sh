@@ -88,7 +88,7 @@ set_xorg() {
 }
 
 set_i3() {
-    yay -Sy i3-gaps-next-git
+    yay -Sy i3-gaps-next-git i3lock
     sudo cp .xinitrc ~/.xinitrc
 }
 

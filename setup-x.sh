@@ -108,4 +108,4 @@ set_bluetooth
 set_tlp
 set_xorg
 set_i3
-#set_terminal
+set_terminal

@@ -18,6 +18,10 @@ Gpd Pocket 2 auto setup script for Archlinux
 - `./chroot.sh`
 
 Once reboot, redo the first 3 step above, but this time run
+- `su`
+- `visudo`
+- copy root line and add for your user to be a sudoer
+- `exit`
 - `sudo ./setup-x.sh`
 - then feel free to remove the directory
 

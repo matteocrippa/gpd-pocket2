@@ -69,9 +69,6 @@ chrootall() {
     useradd -m -g users -G wheel,storage,power -s /bin/bash ${USER}
     passwd ${USER}
 
-    echo "Set Visudo"
-    visudo
-
     # final touches
     exit
 }

@@ -23,7 +23,7 @@ Once reboot, redo the first 3 step above, but this time run
 - `visudo`
 - copy root line and add for your user to be a sudoer
 - `exit`
-- `sudo ./setup-x.sh`
+- `./setup-x.sh`
 - then feel free to remove the directory
 
 ## Troubleshooting

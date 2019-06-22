@@ -80,9 +80,9 @@ set_tlp() {
 set_xorg() {
     yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession --needed --noconfirm
 
-    sudo ln -sfT xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
-    sudo ln -sfT xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
-    sudo ln -sfT xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
+    sudo cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+    sudo cp xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
+    sudo cp xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
 
     yay -Sy xf86-video-intel --needed --noconfirm
 }

@@ -13,6 +13,7 @@ Gpd Pocket 2 auto setup script for Archlinux
 - run `pacman -Sy git`
 - run `git clone https://github.com/matteocrippa/gpd-pocket2 /tmp/gpd-pocket2`
 - `cd /tmp/gdp-pocket2`
+- edit `vars.sh` if you need/want to change any params
 - `./install.sh`
 - once the system enter in chroot run
 - `./chroot.sh`

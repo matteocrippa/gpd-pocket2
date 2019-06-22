@@ -11,7 +11,7 @@ update_pacman() {
     echo "[archlinuxfr]" | sudo tee -a /etc/pacman.conf
     echo "SigLevel = Never" | sudo tee -a /etc/pacman.conf
     echo "Server = http://repo.archlinux.fr/\$arch" | sudo tee -a /etc/pacman.conf
-    pacman -Suy
+    sudo pacman -Suy
 }
 
 set_yay() {

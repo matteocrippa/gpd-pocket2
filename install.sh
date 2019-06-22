@@ -116,7 +116,7 @@ prepare() {
 # chroot
 chrootall() {
     cp chroot.sh /mnt
-    
+
     # chroot arch
     arch-chroot /mnt /bin/bash
     umount -R /mnt

@@ -32,7 +32,7 @@ set_timezone() {
 }
 
 set_thermald() {
-    yay -Sy thermald
+    yay -Sy thermald --needed --noconfirm
 
     # Enable + start
     sudo systemctl enable thermald.service
@@ -42,7 +42,7 @@ set_thermald() {
 
 set_network() {
     # Install
-    yay -S networkmanager network-manager-applet nm-connection-editor
+    yay -S networkmanager network-manager-applet nm-connection-editor --needed --noconfirm
 
     # Enable + start
     sudo systemctl enable NetworkManager
@@ -52,24 +52,24 @@ set_network() {
 
 set_sound() {
     # Install pulseaudio packages
-    yay -S pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-ctl
+    yay -S pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-ctl --needed --noconfirm
 }
 
 set_bluetooth() {
     # Install
-    yay -S bluez bluez-utils bluez-tools
+    yay -S bluez bluez-utils bluez-tools --needed --noconfirm
 
     # Enable + start
     sudo systemctl enable bluetooth
     sudo systemctl start bluetooth
 
     # (optional) Install nice traybar utils
-    yay -S blueman blueberry
+    yay -S blueman blueberry --needed --noconfirm
 }
 
 set_tlp() {
     # Install
-    yay -S tlp
+    yay -S tlp --needed --noconfirm
 
     # Enable + start
     sudo systemctl enable tlp
@@ -78,22 +78,22 @@ set_tlp() {
 }
 
 set_xorg() {
-    yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession
+    yay -S xorg-server xorg-xev xorg-xinit xorg-xkill xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xset xinit-xsession --needed --noconfirm
 
-    sudo cp xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
-    sudo cp xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
-    sudo cp xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
+    sudo ln -sfT xorg/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+    sudo ln -sfT xorg/30-display.conf /etc/X11/xorg.conf.d/30-display.conf
+    sudo ln -sfT xorg/99-touchscreen.conf /etc/X11/xorg.conf.d/99-touchscreen.conf
 
-    yay -Sy xf86-video-intel
+    yay -Sy xf86-video-intel --needed --noconfirm
 }
 
 set_i3() {
-    yay -Sy i3-gaps-next-git i3lock-fancy-git
+    yay -Sy i3-gaps-next-git i3lock-fancy-git --needed --noconfirm
     sudo cp .xinitrc ~/.xinitrc
 }
 
 set_terminal() {
-    yay -Sy alacritty
+    yay -Sy alacritty --needed --noconfirm
 }
 
 
